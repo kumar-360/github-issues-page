@@ -1,0 +1,16 @@
+
+.fetched-data{
+  display: flex;
+  border: 1px solid peachpuff;
+  flex-direction: column;
+  margin: 0px auto;
+  /* height: auto; */
+  width: 80%;
+  border-radius: 5px;
+  padding: 5px;
+}
+.label{
+  width:auto;
+  border-radius: 5px;
+  border: none;
+}

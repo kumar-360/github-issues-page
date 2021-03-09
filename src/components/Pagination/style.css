@@ -1,0 +1,9 @@
+
+.paginate-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+}
