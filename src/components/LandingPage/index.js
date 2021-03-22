@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 //import "./App.css";
 import Issues from "../Issues";
 import SearchBar from "../SearchBar";
+import "./style.css"
 
 function LandingPage({ passIssuesDetail }) {
   const [fetched, setFetched] = useState(false);
@@ -21,14 +22,15 @@ function LandingPage({ passIssuesDetail }) {
       `https://api.github.com/repos/${idName}/${repoName}/issues?page=1&per_page=100`
     )
       .then((response) => {
-        if (!response.ok) throw Error("Please enter correct user id and repo name.");
+        if (!response.ok)
+          throw Error("Please enter correct user id and repo name.");
 
         setError("");
         return response.json();
       })
       .then((data) => {
         setIsLoading(false);
-        console.log(data)
+        console.log(data);
         return setArr(data);
       })
       .catch((e) => {
@@ -42,33 +44,36 @@ function LandingPage({ passIssuesDetail }) {
   };
   return (
     <div>
-      <h1>Github</h1>
-      <SearchBar
-        type="text"
-        placeholder="Enter user id name"
-        value={idName}
-        onChange={(e) => setIdName(e.target.value)}
-      />
-      <br />
-      <SearchBar
-        type="text"
-        placeholder="Enter repo name"
-        value={repoName}
-        onChange={(e) => setRepoName(e.target.value)}
-      />
-      <br />
-      <button
-        onClick={() => {
-          setFetched(true);
-          setIsLoading(true);
-          fetchClicked();
-        }}
-      >
-        Fetch
-      </button>
-      <br/>
-      {error}
-      {isLoading === true && fetched === true ? <div>Loading...</div> : ""}
+      <div className="search">
+        <h1>Github</h1>
+        <SearchBar
+          type="text"
+          placeholder="Enter user id name"
+          value={idName}
+          onChange={(e) => setIdName(e.target.value)}
+        />
+        <br />
+        <SearchBar
+          type="text"
+          placeholder="Enter repo name"
+          value={repoName}
+          onChange={(e) => setRepoName(e.target.value)}
+        />
+        <br />
+        <button
+          onClick={() => {
+            setFetched(true);
+            setIsLoading(true);
+            fetchClicked();
+          }}
+        >
+          Fetch
+        </button>
+
+        <br />
+        {error}
+        {isLoading === true && fetched === true ? <div>Loading...</div> : ""}
+      </div>
       {fetched === true ? (
         <Issues
           fetchedData={currentPosts}

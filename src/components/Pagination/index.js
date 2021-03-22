@@ -26,13 +26,13 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
                 setCount(item);
               }}
             >
-              {item}
+              <div style={{cursor:"pointer"}}>{item}</div>
             </div>
           );
         })}
       </div>
       <div className="footer">
-        Page {count}
+        <div style={{display:"inline-block"}}>Page {count}</div>
         <button onClick={handleClick} style={{ margin: "10px" }}>
           Next
         </button>

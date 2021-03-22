@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import LandingPage from "./components/LandingPage";
-//import "./App.css";
+import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import IssuesDetail from "./components/IssuesDetail";
 
